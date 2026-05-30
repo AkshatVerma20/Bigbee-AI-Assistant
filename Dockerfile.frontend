@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir streamlit requests sseclient-py pydantic pydantic-settings python-dotenv
+
+COPY frontend/ ./frontend/
+COPY backend/config.py ./backend/config.py
+COPY backend/__init__.py ./backend/__init__.py
+
+EXPOSE 8501
+CMD ["streamlit", "run", "frontend/app.py", \
+     "--server.port", "8501", \
+     "--server.address", "0.0.0.0", \
+     "--server.headless", "true"]

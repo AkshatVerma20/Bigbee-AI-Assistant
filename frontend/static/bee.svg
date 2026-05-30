@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="60" height="60">
+  <!-- Body -->
+  <ellipse cx="50" cy="58" rx="18" ry="24" fill="#7c3aed"/>
+  <!-- Stripes -->
+  <ellipse cx="50" cy="52" rx="18" ry="5" fill="#a78bfa" opacity="0.7"/>
+  <ellipse cx="50" cy="62" rx="18" ry="5" fill="#a78bfa" opacity="0.7"/>
+  <ellipse cx="50" cy="72" rx="14" ry="4" fill="#a78bfa" opacity="0.5"/>
+  <!-- Head -->
+  <circle cx="50" cy="36" r="13" fill="#7c3aed"/>
+  <!-- Eyes -->
+  <circle cx="44" cy="33" r="3" fill="white"/>
+  <circle cx="56" cy="33" r="3" fill="white"/>
+  <circle cx="45" cy="33" r="1.5" fill="#1a1a2e"/>
+  <circle cx="57" cy="33" r="1.5" fill="#1a1a2e"/>
+  <!-- Antennae -->
+  <line x1="45" y1="24" x2="38" y2="14" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="38" cy="13" r="2.5" fill="#a78bfa"/>
+  <line x1="55" y1="24" x2="62" y2="14" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="62" cy="13" r="2.5" fill="#a78bfa"/>
+  <!-- Wings -->
+  <ellipse cx="28" cy="48" rx="14" ry="8" fill="#c4b5fd" opacity="0.7" transform="rotate(-20 28 48)"/>
+  <ellipse cx="72" cy="48" rx="14" ry="8" fill="#c4b5fd" opacity="0.7" transform="rotate(20 72 48)"/>
+  <ellipse cx="30" cy="58" rx="10" ry="6" fill="#ddd6fe" opacity="0.5" transform="rotate(-15 30 58)"/>
+  <ellipse cx="70" cy="58" rx="10" ry="6" fill="#ddd6fe" opacity="0.5" transform="rotate(15 70 58)"/>
+  <!-- Stinger -->
+  <ellipse cx="50" cy="82" rx="4" ry="5" fill="#6d28d9"/>
+</svg>
