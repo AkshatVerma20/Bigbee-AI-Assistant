@@ -10,7 +10,7 @@ import hashlib
 # Format: "username": "password"
 # To add a new user just add a new line here.
 USERS = {
-    "dumbo":   "dumbo123",
+    "demo":   "demo123",
     "akshat": "akshat123",
     "admin":  "admin123",
 }
