@@ -17,7 +17,7 @@ def render_sidebar(api: APIClient):
         </div>
         """, unsafe_allow_html=True)
 
-        # Backend status
+
         healthy = api.health()
         dot = "🟢" if healthy else "🔴"
         st.markdown(
@@ -28,19 +28,18 @@ def render_sidebar(api: APIClient):
 
         st.divider()
 
-        # Logout
+
         render_logout_button()
         st.divider()
 
-        # Session
-        st.markdown("### 📋 Session")
+    
+        st.markdown("###  Session")
         user_id = st.session_state.get("logged_in_user", "user")
         st.markdown(f"**User:** `{user_id}`")
         session_id = st.text_input("Session ID", value="session_1", key="session_id_input")
         st.divider()
 
-        # Mode
-        st.markdown("### ⚙️ Mode")
+        st.markdown("###  Mode")
         mode = st.radio(
             "Chat mode",
             ["Standard Agent", "Multi-Agent (complex tasks)"],
@@ -48,15 +47,15 @@ def render_sidebar(api: APIClient):
         )
         st.divider()
 
-        # File upload
-        st.markdown("### 📄 Upload Documents")
+        
+        st.markdown("###  Upload Documents")
         uploaded = st.file_uploader("PDF / TXT / CSV / MD", type=["pdf", "txt", "md", "csv"])
         if uploaded and st.button("📥 Upload & Index", use_container_width=True):
             with st.spinner(f"Uploading {uploaded.name}..."):
                 try:
                     result = api.upload_file(uploaded.read(), uploaded.name, uploaded.type or "text/plain")
                     indexed = result.get("rag_indexed", False)
-                    st.success(f"✅ {result['filename']}" + (" + RAG indexed" if indexed else ""))
+                    st.success(f" {result['filename']}" + (" + RAG indexed" if indexed else ""))
                 except Exception as e:
                     st.error(f"Upload failed: {e}")
 
@@ -65,8 +64,8 @@ def render_sidebar(api: APIClient):
             st.caption(f"Files: {', '.join(files)}")
         st.divider()
 
-        # History
-        st.markdown("### 💬 History")
+
+        st.markdown("###  History")
         col1, col2 = st.columns(2)
         with col1:
             if st.button("📂 Load", use_container_width=True):
