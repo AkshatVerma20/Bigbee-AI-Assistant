@@ -306,7 +306,7 @@ if prompt := st.chat_input(placeholder):
 
     with st.chat_message("assistant"):
         if mode == "Multi-Agent (complex tasks)":
-            with st.spinner("🧠 Agents working... (30–60 seconds)"):
+            with st.spinner(" Agents working... (30–60 seconds)"):
                 try:
                     result = api.multi_agent(prompt, user_id)
                     full_response = result.get("answer", "No answer generated")
