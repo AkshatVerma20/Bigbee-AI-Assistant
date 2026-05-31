@@ -19,7 +19,7 @@ ALLOWED_TYPES = {
 
 @router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
-    # Validate type
+
     content_type = file.content_type or ""
     if not any(ct in content_type for ct in ["pdf", "text", "json", "markdown"]):
         raise HTTPException(400, f"Unsupported file type: {content_type}. Allowed: PDF, TXT, MD, CSV, JSON")
@@ -37,7 +37,7 @@ async def upload_file(file: UploadFile = File(...)):
 
     logger.info(f"Uploaded: {safe_name} ({len(contents):,} bytes)")
 
-    # Index PDFs into RAG
+   
     indexed = False
     if "pdf" in content_type:
         try:
