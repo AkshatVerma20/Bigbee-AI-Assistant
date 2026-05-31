@@ -14,7 +14,6 @@ from frontend.utils.api_client import APIClient
 from frontend.components.sidebar import render_sidebar
 from frontend.components.auth import render_login
 
-# ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Bigbee",
     page_icon="frontend/static/bee.svg",
@@ -22,7 +21,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── Global CSS — Google-inspired vibrant theme ────────────────────────────────
 st.markdown("""
 <style>
 /* ── Base ── */
@@ -272,10 +270,10 @@ if "messages" not in st.session_state:
 if "streaming" not in st.session_state:
     st.session_state["streaming"] = True
 
-# ── Sidebar ───────────────────────────────────────────────────────────────────
+
 user_id, session_id, mode = render_sidebar(api)
 
-# ── Header ────────────────────────────────────────────────────────────────────
+
 st.markdown('<div class="gradient-title">Bigbee</div>', unsafe_allow_html=True)
 
 if mode == "Multi-Agent (complex tasks)":
@@ -289,12 +287,12 @@ else:
         unsafe_allow_html=True
     )
 
-# ── Chat history ──────────────────────────────────────────────────────────────
+
 for msg in st.session_state["messages"]:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-# ── Chat input ────────────────────────────────────────────────────────────────
+
 placeholder = (
     "Describe a complex task to research, analyse and write about..."
     if mode == "Multi-Agent (complex tasks)"
