@@ -14,7 +14,6 @@ from utils.logger import get_logger
 logger = get_logger(__name__)
 router = APIRouter()
 
-# In-memory session store (replace with Redis for multi-process production)
 _sessions: dict = {}
 
 
@@ -80,7 +79,7 @@ async def _stream_response(initial_state, memory, request: ChatRequest):
     try:
         for chunk in agent_graph.stream(initial_state, stream_mode="values"):
             last_msg = chunk["messages"][-1]
-            # Only emit final text content (not tool calls)
+          
             if hasattr(last_msg, "content") and last_msg.content and not getattr(last_msg, "tool_calls", None):
                 content = last_msg.content
                 if content not in full_response:
