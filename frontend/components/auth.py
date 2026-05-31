@@ -6,9 +6,6 @@ Add or remove users by editing the USERS dict below.
 import streamlit as st
 import hashlib
 
-# ── Authorized users ─────────────────────────────────────────────────────────
-# Format: "username": "password"
-# To add a new user just add a new line here.
 USERS = {
     "demo":   "demo123",
     "akshat": "akshat123",
@@ -20,7 +17,6 @@ def _hash(password: str) -> str:
     return hashlib.sha256(password.encode()).hexdigest()
 
 
-# Pre-hash all passwords so plain text isn't compared at runtime
 _HASHED = {u: _hash(p) for u, p in USERS.items()}
 
 
@@ -34,11 +30,11 @@ def render_login() -> bool:
     Renders the login page.
     Returns True if the user is authenticated, False otherwise.
     """
-    # Already logged in?
+  
     if st.session_state.get("authenticated"):
         return True
 
-    # ── Page styling ──────────────────────────────────────────────────────────
+   
     st.markdown("""
     <style>
     /* Hide default streamlit header on login page */
@@ -83,7 +79,7 @@ def render_login() -> bool:
     </style>
     """, unsafe_allow_html=True)
 
-    # ── Center the form ───────────────────────────────────────────────────────
+
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown('<div class="login-title">Welcome to Bigbee</div>', unsafe_allow_html=True)
@@ -100,7 +96,7 @@ def render_login() -> bool:
                 elif check_credentials(username, password):
                     st.session_state["authenticated"] = True
                     st.session_state["logged_in_user"] = username.strip().lower()
-         #           st.rerun()
+                    st.rerun()
                 else:
                     st.error("❌ Invalid username or password.")
 
