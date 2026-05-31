@@ -19,7 +19,4 @@ def build_agent_graph():
     graph.add_edge("tools", "agent")
 
     return graph.compile()
-
-
-# Compiled once at import — reused for every request
 agent_graph = build_agent_graph()
