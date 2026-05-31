@@ -1,7 +1,4 @@
-"""
-Multi-agent system: Supervisor + Researcher + Coder + Writer.
-Use via POST /api/multi-agent for complex multi-step tasks.
-"""
+
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage
 from langgraph.graph import StateGraph, END
